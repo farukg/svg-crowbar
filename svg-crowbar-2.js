@@ -101,8 +101,10 @@
     var buttonWrapper = document.createElement("div");
     buttonsContainer.appendChild(buttonWrapper);
     buttonWrapper.style["position"] = "absolute";
-    buttonWrapper.style["top"] = (sources[0].top + document.body.scrollTop - 45) + "px";
-    buttonWrapper.style["left"] = (document.body.scrollLeft + sources[0].left) + "px";
+    buttonWrapper.style["top"] = (10) + "px";
+    buttonWrapper.style["left"] = (15) + "px";
+    buttonWrapper.style["margin"] = (10) + "px";
+    buttonWrapper.style["padding"] = (15) + "px";
     var exitButton = document.createElement("button");
     exitButton.setAttribute('class', 'btn btn-default');
     buttonWrapper.appendChild(exitButton);
@@ -169,7 +171,11 @@
       el.parentNode.removeChild(el);
     });
   }
-
+  document.addEventListener('keydown', function(e) {
+    if(e.keyCode == 27){
+       cleanup();
+    }
+   });
 
   function getSources(doc, emptySvgDeclarationComputed) {
     var svgInfo = [],
